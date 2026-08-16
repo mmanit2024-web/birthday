@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise 🎁</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffb6c1, #ffd6e0, #ffe4ec);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #d6336c;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #6d214f;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 140px;
+            height: 180px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            backface-visibility: hidden;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-front {
+            background: white;
+            border: 4px solid #ff5c8a;
+        }
+
+        .card-front .gift {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .card-front h2 {
+            color: #d6336c;
+            font-size: 32px;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #ff4081, #d63384);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-back .number {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .card-back p {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .message {
+            margin-top: 35px;
+            font-size: 22px;
+            color: #7b1e4b;
+            font-weight: bold;
+        }
+
+        .reset {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #d6336c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .reset:hover {
+            background: #b52a59;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 25px;
+            animation: float 5s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .card {
+                width: 110px;
+                height: 150px;
+            }
+
+            .card-front .gift {
+                font-size: 40px;
+            }
+
+            .card-back .number {
+                font-size: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎂 Happy Birthday! 🎀</h1>
+
+        <p class="subtitle">
+            I have a little surprise for you... 💗<br>
+            Choose ONE mystery box! 🎁
+        </p>
+
+        <div class="cards">
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift">🎁</div>
+                        <h2>1</h2>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="number"></div>
+                        <p>Your Lucky Number ✨</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift">🎁</div>
+                        <h2>2</h2>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="number"></div>
+                        <p>Your Lucky Number ✨</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift">🎁</div>
+                        <h2>3</h2>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="number"></div>
+                        <p>Your Lucky Number ✨</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift">🎁</div>
+                        <h2>4</h2>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="number"></div>
+                        <p>Your Lucky Number ✨</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift">🎁</div>
+                        <h2>5</h2>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="number"></div>
+                        <p>Your Lucky Number ✨</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="message">
+            Pick your number... 😈💗
+        </div>
+
+        <button class="reset" onclick="location.reload()">
+            🔄 Play Again
+        </button>
+
+    </div>
+
+
+    <script>
+
+        let alreadyClicked = false;
+
+        function flipCard(card) {
+
+            // Don't allow another card after choosing
+            if (alreadyClicked) {
+                return;
+            }
+
+            alreadyClicked = true;
+
+            // Generate random number from 1 to 5
+            let randomNumber = Math.floor(Math.random() * 5) + 1;
+
+            // Put random number on back of card
+            card.querySelector(".number").innerText = randomNumber;
+
+            // Flip the card
+            card.classList.add("flipped");
+
+            // Change message
+            document.querySelector(".message").innerHTML =
+                "🎉 Your lucky number is " + randomNumber + "! 🎁💗";
+
+            // Show reset button
+            document.querySelector(".reset").style.display = "inline-block";
+        }
+
+
+        // Floating hearts
+        function createHeart() {
+
+            const heart = document.createElement("div");
+
+            heart.classList.add("heart");
+
+            heart.innerHTML = "💗";
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 500);
+
+    </script>
+
+</body>
+</html>
