@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Moukthika's Birthday Surprise 🎂</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Moukthika's Birthday Surprise 🎁</title>
+
 
 <style>
+
+/* =========================
+   BASIC SETTINGS
+========================= */
 
 * {
     box-sizing: border-box;
@@ -15,97 +24,190 @@
 }
 
 body {
+
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     background:
-        radial-gradient(circle at top left, #fff0f5, transparent 35%),
-        radial-gradient(circle at bottom right, #ffd1e0, transparent 35%),
-        linear-gradient(135deg, #ffb6c1, #ffdce6);
+        radial-gradient(
+            circle at 10% 10%,
+            #fff5f8,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #ffc3d5,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #ffc4d2,
+            #ffe0e8
+        );
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
-    overflow: hidden;
+
+    overflow-x: hidden;
+
+    padding: 30px 10px;
 }
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
 
 .container {
-    width: 95%;
-    max-width: 1100px;
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    position: relative;
+
+    z-index: 2;
 }
+
+
+/* =========================
+   TITLE
+========================= */
 
 h1 {
+
     font-size: 46px;
-    color: #d6336c;
+
+    color: #d62965;
+
     margin-bottom: 12px;
-    text-shadow: 0 0 10px rgba(255, 80, 140, 0.3);
+
+    text-shadow:
+        0 3px 8px
+        rgba(214, 41, 101, 0.2);
 }
 
+
 .name {
+
     color: #c2185b;
 }
 
+
+/* =========================
+   SUBTITLE
+========================= */
+
 .subtitle {
+
     font-size: 21px;
-    color: #6d214f;
+
+    color: #70204f;
+
     line-height: 1.5;
+
     margin-bottom: 40px;
 }
 
+
+/* =========================
+   CARDS CONTAINER
+========================= */
+
 .cards {
+
     display: flex;
+
     justify-content: center;
-    gap: 22px;
-    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 24px;
+
+    flex-wrap: nowrap;
 }
 
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .card {
+
     width: 165px;
+
     height: 220px;
+
     perspective: 1200px;
+
     cursor: pointer;
+
+    flex-shrink: 0;
 }
 
 
-/* GO DOWN AND COME BACK */
+/* =========================
+   DOWN + UP ANIMATION
+========================= */
 
 .card.opening {
-    animation: openDown 0.9s ease-in-out;
+
+    animation:
+        downAndBack
+        0.8s
+        ease-in-out;
 }
 
-@keyframes openDown {
+
+@keyframes downAndBack {
 
     0% {
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 
-    25% {
-        transform: translateY(25px) scale(0.96);
+    30% {
+
+        transform:
+            translateY(45px)
+            scale(0.94);
     }
 
-    50% {
-        transform: translateY(50px) scale(0.90);
-    }
+    55% {
 
-    75% {
-        transform: translateY(20px) scale(0.97);
+        transform:
+            translateY(45px)
+            scale(0.94);
     }
 
     100% {
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 
-/* INNER CARD */
+/* =========================
+   CARD INNER
+========================= */
 
 .card-inner {
+
     width: 100%;
+
     height: 100%;
 
     position: relative;
@@ -113,25 +215,41 @@ h1 {
     transform-style: preserve-3d;
 
     transition:
-        transform 1s cubic-bezier(.68,-0.55,.27,1.55);
+        transform
+        0.9s
+        cubic-bezier(
+            .68,
+            -0.55,
+            .27,
+            1.55
+        );
 }
 
 
-/* FLIP */
+/* =========================
+   FLIP
+========================= */
 
 .card.flipped .card-inner {
-    transform: rotateY(180deg);
+
+    transform:
+        rotateY(180deg);
 }
 
 
-/* FRONT + BACK */
+/* =========================
+   FRONT + BACK
+========================= */
 
 .card-front,
 .card-back {
 
     position: absolute;
 
+    inset: 0;
+
     width: 100%;
+
     height: 100%;
 
     border-radius: 25px;
@@ -139,17 +257,24 @@ h1 {
     backface-visibility: hidden;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
+    overflow: hidden;
+
     box-shadow:
-        0 12px 30px rgba(0,0,0,0.15);
+        0 12px 30px
+        rgba(0, 0, 0, 0.15);
 }
 
 
-/* FRONT */
+/* =========================
+   FRONT
+========================= */
 
 .card-front {
 
@@ -160,53 +285,69 @@ h1 {
             #fff1f6
         );
 
-    border: 4px solid #ff5c8a;
+    border:
+        4px solid
+        #ff5c8a;
 
-    position: relative;
-
-    overflow: hidden;
-
-    transition: 0.3s;
+    transition:
+        transform
+        0.3s
+        ease;
 }
+
 
 .card:hover .card-front {
 
     transform:
-        translateY(-8px)
+        translateY(-7px)
         rotate(-2deg);
 
     box-shadow:
-        0 20px 40px rgba(214,51,108,0.3);
+        0 20px 40px
+        rgba(214, 51, 108, 0.3);
 }
 
 
-/* EMOJI */
+/* =========================
+   FRONT EMOJI
+========================= */
 
 .emoji {
 
-    font-size: 75px;
+    font-size: 68px;
+
+    margin-bottom: 15px;
 
     animation:
-        emojiFloat 2s ease-in-out infinite;
+        emojiFloat
+        2s
+        ease-in-out
+        infinite;
 }
+
 
 @keyframes emojiFloat {
 
-    0%, 100% {
-        transform: translateY(0);
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-10px);
+
+        transform:
+            translateY(-9px);
     }
 }
 
 
-/* OPEN ME */
+/* =========================
+   OPEN ME
+========================= */
 
 .question {
-
-    margin-top: 15px;
 
     font-size: 15px;
 
@@ -218,32 +359,9 @@ h1 {
 }
 
 
-/* SHINE */
-
-.card-front::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 55px;
-    height: 260px;
-
-    background: rgba(255,255,255,0.7);
-
-    transform: rotate(25deg);
-
-    left: -100px;
-
-    transition: 0.6s;
-}
-
-.card:hover .card-front::before {
-    left: 190px;
-}
-
-
-/* BACK */
+/* =========================
+   BACK
+========================= */
 
 .card-back {
 
@@ -256,139 +374,143 @@ h1 {
 
     color: white;
 
-    transform: rotateY(180deg);
+    transform:
+        rotateY(180deg);
 
-    padding: 15px;
+    padding:
+        12px;
 
-    box-shadow:
-        0 0 30px rgba(255,64,129,0.6);
+    border:
+        4px solid
+        #ff9fbb;
+
+    justify-content:
+        space-evenly;
 }
 
 
-/* BACK EMOJI */
+/* =========================
+   BACK EMOJI
+========================= */
 
 .back-emoji {
 
-    font-size: 42px;
+    font-size: 38px;
 
-    margin-bottom: 6px;
+    line-height: 1;
 }
 
 
-/* DARE */
+/* =========================
+   DARE TITLE
+========================= */
 
 .dare-title {
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: bold;
-
-    margin-bottom: 8px;
 
     letter-spacing: 1px;
 }
 
+
+/* =========================
+   DARE TEXT
+========================= */
+
 .dare-text {
 
-    font-size: 16px;
+    font-size: 15px;
 
-    line-height: 1.4;
+    line-height: 1.25;
 
     font-weight: bold;
 
-    margin-bottom: 12px;
+    width: 135px;
+
+    min-height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
 }
 
 
-/* GIFT */
+/* =========================
+   GIFT LABEL
+========================= */
 
 .gift-label {
 
-    font-size: 13px;
+    font-size: 11px;
 
-    margin-bottom: 2px;
+    margin-top: 2px;
 }
+
+
+/* =========================
+   GIFT NUMBER
+========================= */
 
 .number {
 
-    font-size: 55px;
+    font-size: 40px;
+
+    line-height: 1;
 
     font-weight: bold;
 
     text-shadow:
-        0 0 15px rgba(255,255,255,0.9);
-
-    animation: pop 0.8s;
-}
-
-@keyframes pop {
-
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    60% {
-        transform: scale(1.3);
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-
-/* SPARKLES */
-
-.sparkle {
-
-    position: fixed;
-
-    pointer-events: none;
-
-    font-size: 25px;
+        0 0 15px
+        rgba(255,255,255,0.9);
 
     animation:
-        sparkleAnimation 1.2s forwards;
+        numberPop
+        0.7s
+        ease;
 }
 
-@keyframes sparkleAnimation {
+
+@keyframes numberPop {
 
     0% {
-        transform:
-            scale(0)
-            rotate(0deg);
 
-        opacity: 1;
+        transform:
+            scale(0);
+
+        opacity: 0;
     }
 
-    50% {
+    70% {
+
         transform:
-            scale(1.5)
-            rotate(180deg);
+            scale(1.2);
 
         opacity: 1;
     }
 
     100% {
-        transform:
-            scale(0)
-            rotate(360deg)
-            translateY(-80px);
 
-        opacity: 0;
+        transform:
+            scale(1);
+
+        opacity: 1;
     }
 }
 
 
-/* MESSAGE */
+/* =========================
+   MESSAGE
+========================= */
 
 .message {
 
     margin-top: 35px;
 
-    font-size: 24px;
+    font-size: 23px;
 
     font-weight: bold;
 
@@ -398,39 +520,52 @@ h1 {
 }
 
 
-/* FLOATING HEARTS */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .heart {
 
-    position: absolute;
+    position: fixed;
+
+    left: 0;
+
+    bottom: -40px;
 
     font-size: 25px;
 
-    animation:
-        float 5s linear infinite;
-
-    opacity: 0.7;
-
     pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+        floatHeart
+        5s
+        linear
+        forwards;
 }
 
-@keyframes float {
+
+@keyframes floatHeart {
 
     0% {
+
         transform:
-            translateY(100vh)
+            translateY(0)
             rotate(0deg);
 
         opacity: 0;
     }
 
     20% {
+
         opacity: 0.8;
     }
 
     100% {
+
         transform:
-            translateY(-10vh)
+            translateY(-110vh)
             rotate(360deg);
 
         opacity: 0;
@@ -438,101 +573,200 @@ h1 {
 }
 
 
-/* CONFETTI */
+/* =========================
+   SPARKLES
+========================= */
+
+.sparkle {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    font-size: 25px;
+
+    z-index: 20;
+
+    animation:
+        sparkleAnimation
+        1.1s
+        ease
+        forwards;
+}
+
+
+@keyframes sparkleAnimation {
+
+    0% {
+
+        transform:
+            scale(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    50% {
+
+        transform:
+            scale(1.5)
+            rotate(180deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(0)
+            rotate(360deg)
+            translateY(-70px);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
 
 .confetti {
 
     position: fixed;
 
-    top: -20px;
+    top: -30px;
 
     pointer-events: none;
 
+    z-index: 30;
+
     animation:
-        fall 3s linear forwards;
+        confettiFall
+        3s
+        linear
+        forwards;
 }
 
-@keyframes fall {
+
+@keyframes confettiFall {
 
     0% {
+
         transform:
             translateY(0)
             rotate(0deg);
+
+        opacity: 1;
     }
 
     100% {
+
         transform:
             translateY(110vh)
             rotate(720deg);
+
+        opacity: 0;
     }
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
+
+    body {
+
+        align-items:
+            flex-start;
+
+        padding-top: 40px;
+
+        overflow-y: auto;
+    }
+
 
     h1 {
-        font-size: 33px;
+
+        font-size: 32px;
     }
+
 
     .subtitle {
+
         font-size: 18px;
+
+        margin-bottom: 25px;
     }
+
 
     .cards {
-        gap: 12px;
+
+        overflow-x: auto;
+
+        justify-content:
+            flex-start;
+
+        padding:
+            15px
+            20px
+            30px;
+
+        gap: 15px;
     }
+
 
     .card {
-        width: 105px;
-        height: 170px;
+
+        width: 145px;
+
+        height: 205px;
     }
+
 
     .emoji {
-        font-size: 50px;
+
+        font-size: 58px;
     }
 
-    .question {
-        font-size: 11px;
-    }
-
-    .back-emoji {
-        font-size: 30px;
-    }
-
-    .dare-title {
-        font-size: 11px;
-    }
 
     .dare-text {
-        font-size: 11px;
+
+        font-size: 14px;
+
+        width: 120px;
     }
 
-    .number {
-        font-size: 45px;
-    }
 
     .message {
+
         font-size: 19px;
     }
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="container">
 
 
-    <!-- TITLE -->
+    <!-- =====================
+         TITLE
+    ====================== -->
 
     <h1>
 
         🎂 Happy Birthday,
-        <span class="name">Moukthika</span>!
+        <span class="name">
+            Moukthika
+        </span>!
         🎀
 
     </h1>
@@ -544,17 +778,25 @@ h1 {
 
         <br>
 
-        Choose a mystery card! ✨
+        Choose ONE mystery card! ✨🎁
 
     </p>
 
+
+
+    <!-- =====================
+         CARDS
+    ====================== -->
 
     <div class="cards">
 
 
         <!-- CARD 1 -->
 
-        <div class="card" onclick="flipCard(this)">
+        <div
+            class="card"
+            onclick="flipCard(this)"
+        >
 
             <div class="card-inner">
 
@@ -583,7 +825,7 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE! 😂
+                        😂 DARE!
                     </div>
 
                     <div class="dare-text">
@@ -591,7 +833,7 @@ h1 {
                     </div>
 
                     <div class="gift-label">
-                        🎁 Your Gift Number
+                        🎁 GIFT NUMBER
                     </div>
 
                     <div class="number">
@@ -608,10 +850,15 @@ h1 {
 
         <!-- CARD 2 -->
 
-        <div class="card" onclick="flipCard(this)">
+        <div
+            class="card"
+            onclick="flipCard(this)"
+        >
 
             <div class="card-inner">
 
+
+                <!-- FRONT -->
 
                 <div class="card-front">
 
@@ -626,6 +873,8 @@ h1 {
                 </div>
 
 
+                <!-- BACK -->
+
                 <div class="card-back">
 
                     <div class="back-emoji">
@@ -633,7 +882,7 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE! 😂
+                        😂 DARE!
                     </div>
 
                     <div class="dare-text">
@@ -641,7 +890,7 @@ h1 {
                     </div>
 
                     <div class="gift-label">
-                        🎁 Your Gift Number
+                        🎁 GIFT NUMBER
                     </div>
 
                     <div class="number">
@@ -658,10 +907,15 @@ h1 {
 
         <!-- CARD 3 -->
 
-        <div class="card" onclick="flipCard(this)">
+        <div
+            class="card"
+            onclick="flipCard(this)"
+        >
 
             <div class="card-inner">
 
+
+                <!-- FRONT -->
 
                 <div class="card-front">
 
@@ -676,6 +930,8 @@ h1 {
                 </div>
 
 
+                <!-- BACK -->
+
                 <div class="card-back">
 
                     <div class="back-emoji">
@@ -683,7 +939,7 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE! 😂
+                        😂 DARE!
                     </div>
 
                     <div class="dare-text">
@@ -691,7 +947,7 @@ h1 {
                     </div>
 
                     <div class="gift-label">
-                        🎁 Your Gift Number
+                        🎁 GIFT NUMBER
                     </div>
 
                     <div class="number">
@@ -708,10 +964,15 @@ h1 {
 
         <!-- CARD 4 -->
 
-        <div class="card" onclick="flipCard(this)">
+        <div
+            class="card"
+            onclick="flipCard(this)"
+        >
 
             <div class="card-inner">
 
+
+                <!-- FRONT -->
 
                 <div class="card-front">
 
@@ -726,6 +987,8 @@ h1 {
                 </div>
 
 
+                <!-- BACK -->
+
                 <div class="card-back">
 
                     <div class="back-emoji">
@@ -733,7 +996,7 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE! 😂
+                        😂 DARE!
                     </div>
 
                     <div class="dare-text">
@@ -741,7 +1004,7 @@ h1 {
                     </div>
 
                     <div class="gift-label">
-                        🎁 Your Gift Number
+                        🎁 GIFT NUMBER
                     </div>
 
                     <div class="number">
@@ -758,10 +1021,15 @@ h1 {
 
         <!-- CARD 5 -->
 
-        <div class="card" onclick="flipCard(this)">
+        <div
+            class="card"
+            onclick="flipCard(this)"
+        >
 
             <div class="card-inner">
 
+
+                <!-- FRONT -->
 
                 <div class="card-front">
 
@@ -776,6 +1044,8 @@ h1 {
                 </div>
 
 
+                <!-- BACK -->
+
                 <div class="card-back">
 
                     <div class="back-emoji">
@@ -783,7 +1053,7 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE! 😂
+                        😂 DARE!
                     </div>
 
                     <div class="dare-text">
@@ -791,7 +1061,7 @@ h1 {
                     </div>
 
                     <div class="gift-label">
-                        🎁 Your Gift Number
+                        🎁 GIFT NUMBER
                     </div>
 
                     <div class="number">
@@ -808,6 +1078,11 @@ h1 {
     </div>
 
 
+
+    <!-- =====================
+         MESSAGE
+    ====================== -->
+
     <div class="message">
 
         Pick your mystery card... 😈💗
@@ -818,90 +1093,97 @@ h1 {
 </div>
 
 
+
 <script>
 
 
-/*
-    CARD OPENING
-*/
+/* =========================
+   FLIP CARD
+========================= */
 
 function flipCard(card) {
 
 
     /*
-        Don't open the same card twice.
+       Prevent clicking the same
+       card multiple times.
     */
 
     if (
-        card.classList.contains("flipped") ||
-        card.classList.contains("opening")
+        card.classList.contains("opening") ||
+        card.classList.contains("flipped")
     ) {
+
         return;
+
     }
 
 
     /*
-        Add the down-and-up animation.
+       First:
+       Card goes DOWN and comes UP.
     */
 
     card.classList.add("opening");
 
 
     /*
-        Sparkles.
+       Create sparkles.
     */
 
     createSparkles(card);
 
 
     /*
-        Wait until the card finishes
-        going down and coming back.
+       Wait for the animation
+       to finish.
     */
 
     setTimeout(function() {
 
 
         /*
-            Flip the card.
-        */
-
-        card.classList.add("flipped");
-
-
-        /*
-            Remove opening animation.
+           Remove down animation.
         */
 
         card.classList.remove("opening");
 
 
         /*
-            Celebration.
+           Now flip the card.
+           It stays in the same position.
+        */
+
+        card.classList.add("flipped");
+
+
+        /*
+           Celebration.
         */
 
         createConfetti();
 
 
         /*
-            Message.
+           Change message.
         */
 
         document.querySelector(".message").innerHTML =
-            "🎉 You found your gift! 🎁💗";
+            "🎉 You found your gift number! 🎁💗";
 
 
-    }, 900);
+    }, 800);
 
 }
 
 
 
-/*
-    SPARKLES
-*/
+/* =========================
+   SPARKLES
+========================= */
 
 function createSparkles(card) {
+
 
     const rect =
         card.getBoundingClientRect();
@@ -921,6 +1203,7 @@ function createSparkles(card) {
         i < 15;
         i++
     ) {
+
 
         const sparkle =
             document.createElement("div");
@@ -962,7 +1245,7 @@ function createSparkles(card) {
 
         setTimeout(
             () => sparkle.remove(),
-            1500
+            1200
         );
 
     }
@@ -971,20 +1254,23 @@ function createSparkles(card) {
 
 
 
-/*
-    FLOATING HEARTS
-*/
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 function createHeart() {
+
 
     const heart =
         document.createElement("div");
 
 
-    heart.classList.add("heart");
+    heart.className =
+        "heart";
 
 
-    heart.innerHTML = "💗";
+    heart.innerHTML =
+        "💗";
 
 
     heart.style.left =
@@ -992,7 +1278,10 @@ function createHeart() {
 
 
     heart.style.animationDuration =
-        (3 + Math.random() * 4) + "s";
+        (
+            3 +
+            Math.random() * 4
+        ) + "s";
 
 
     document.body.appendChild(
@@ -1010,32 +1299,37 @@ function createHeart() {
 
 setInterval(
     createHeart,
-    500
+    700
 );
 
 
 
-/*
-    CONFETTI
-*/
+/* =========================
+   CONFETTI
+========================= */
 
 function createConfetti() {
 
+
     const symbols = [
+
         "🎉",
         "🎊",
         "💗",
         "✨",
         "🎀",
-        "🌸"
+        "🌸",
+        "⭐"
+
     ];
 
 
     for (
         let i = 0;
-        i < 80;
+        i < 60;
         i++
     ) {
+
 
         const confetti =
             document.createElement("div");
@@ -1059,11 +1353,16 @@ function createConfetti() {
 
 
         confetti.style.fontSize =
-            (12 + Math.random() * 20) + "px";
+            (
+                12 +
+                Math.random() * 20
+            ) + "px";
 
 
         confetti.style.animationDelay =
-            Math.random() * 1.5 + "s";
+            (
+                Math.random() * 1.2
+            ) + "s";
 
 
         document.body.appendChild(
@@ -1082,5 +1381,7 @@ function createConfetti() {
 
 </script>
 
+
 </body>
+
 </html>
