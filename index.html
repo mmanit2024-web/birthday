@@ -125,12 +125,10 @@ h1 {
 
     border: 4px solid #ff5c8a;
 
-    padding: 18px;
-
-    transition: 0.3s;
-
     position: relative;
     overflow: hidden;
+
+    transition: 0.3s;
 }
 
 .card:hover .card-front {
@@ -143,29 +141,37 @@ h1 {
 }
 
 
-/* ICON */
+/* BIG EMOJI */
 
-.dare-icon {
-    font-size: 55px;
-    margin-bottom: 15px;
+.card-front .emoji {
+    font-size: 75px;
+
+    animation: emojiFloat 2s ease-in-out infinite;
+}
+
+@keyframes emojiFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 
-/* DARE */
+/* FRONT QUESTION */
 
-.dare-title {
-    color: #d6336c;
-    font-size: 18px;
-    font-weight: bold;
+.card-front .question {
+    margin-top: 15px;
 
-    margin-bottom: 10px;
-}
-
-.dare-text {
-    color: #6d214f;
     font-size: 15px;
-    line-height: 1.4;
     font-weight: bold;
+
+    color: #d6336c;
+
+    letter-spacing: 1px;
 }
 
 
@@ -207,15 +213,49 @@ h1 {
 
     transform: rotateY(180deg);
 
+    padding: 15px;
+
     box-shadow:
         0 0 30px rgba(255,64,129,0.6);
 }
 
 
-/* RANDOM NUMBER */
+/* DARE ON BACK */
+
+.back-emoji {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.dare-title {
+    font-size: 15px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    letter-spacing: 1px;
+}
+
+.dare-text {
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+
+/* GIFT NUMBER */
+
+.gift-number-label {
+    font-size: 13px;
+}
 
 .number {
-    font-size: 78px;
+    font-size: 55px;
+
     font-weight: bold;
 
     text-shadow:
@@ -239,11 +279,6 @@ h1 {
         transform: scale(1);
         opacity: 1;
     }
-}
-
-.card-back p {
-    font-size: 17px;
-    margin-top: 8px;
 }
 
 
@@ -329,33 +364,6 @@ h1 {
     color: #7b1e4b;
 
     min-height: 35px;
-}
-
-
-/* RESET */
-
-.reset {
-    margin-top: 18px;
-
-    padding: 12px 27px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background: #d6336c;
-
-    color: white;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    display: none;
-}
-
-.reset:hover {
-    background: #b52a59;
 }
 
 
@@ -448,13 +456,20 @@ h1 {
         height: 170px;
     }
 
-    .dare-icon {
-        font-size: 40px;
-        margin-bottom: 8px;
+    .card-front .emoji {
+        font-size: 50px;
+    }
+
+    .card-front .question {
+        font-size: 11px;
+    }
+
+    .back-emoji {
+        font-size: 30px;
     }
 
     .dare-title {
-        font-size: 13px;
+        font-size: 11px;
     }
 
     .dare-text {
@@ -462,11 +477,7 @@ h1 {
     }
 
     .number {
-        font-size: 52px;
-    }
-
-    .card-back p {
-        font-size: 12px;
+        font-size: 45px;
     }
 
     .message {
@@ -482,19 +493,14 @@ h1 {
 
 <div class="container">
 
-
     <!-- TITLE -->
 
     <h1>
-
         🎂 Happy Birthday,
         <span class="name">Moukthika</span>!
         🎀
-
     </h1>
 
-
-    <!-- INTRO -->
 
     <p class="subtitle">
 
@@ -502,50 +508,56 @@ h1 {
 
         <br>
 
-        Complete <b>ONE</b> dare to unlock your gift! 🎁
+        Choose <b>ONE</b> mystery card! ✨
 
     </p>
 
 
-    <!-- CARDS -->
-
     <div class="cards">
 
 
-        <!-- DARE 1 -->
+        <!-- CARD 1 -->
 
-        <div
-            class="card"
-            onclick="flipCard(this)"
-        >
+        <div class="card" onclick="flipCard(this)">
 
             <div class="card-inner">
 
+                <!-- FRONT -->
 
                 <div class="card-front">
 
-                    <div class="dare-icon">
+                    <div class="emoji">
+                        💌
+                    </div>
+
+                    <div class="question">
+                        ✨ WHAT'S INSIDE? ✨
+                    </div>
+
+                </div>
+
+
+                <!-- BACK -->
+
+                <div class="card-back">
+
+                    <div class="back-emoji">
                         💌
                     </div>
 
                     <div class="dare-title">
-                        DARE 1
+                        DARE!
                     </div>
 
                     <div class="dare-text">
                         Tell us we are great! 😌💗
                     </div>
 
-                </div>
-
-
-                <div class="card-back">
+                    <div class="gift-number-label">
+                        🎁 Your Gift Number
+                    </div>
 
                     <div class="number"></div>
-
-                    <p>
-                        🎁 Your Gift Number
-                    </p>
 
                 </div>
 
@@ -554,41 +566,44 @@ h1 {
         </div>
 
 
+        <!-- CARD 2 -->
 
-        <!-- DARE 2 -->
-
-        <div
-            class="card"
-            onclick="flipCard(this)"
-        >
+        <div class="card" onclick="flipCard(this)">
 
             <div class="card-inner">
 
-
                 <div class="card-front">
 
-                    <div class="dare-icon">
+                    <div class="emoji">
+                        💧
+                    </div>
+
+                    <div class="question">
+                        ✨ WHAT'S INSIDE? ✨
+                    </div>
+
+                </div>
+
+
+                <div class="card-back">
+
+                    <div class="back-emoji">
                         💧
                     </div>
 
                     <div class="dare-title">
-                        DARE 2
+                        DARE!
                     </div>
 
                     <div class="dare-text">
                         Drink a full bottle of water! 😂💧
                     </div>
 
-                </div>
-
-
-                <div class="card-back">
+                    <div class="gift-number-label">
+                        🎁 Your Gift Number
+                    </div>
 
                     <div class="number"></div>
-
-                    <p>
-                        🎁 Your Gift Number
-                    </p>
 
                 </div>
 
@@ -597,41 +612,44 @@ h1 {
         </div>
 
 
+        <!-- CARD 3 -->
 
-        <!-- DARE 3 -->
-
-        <div
-            class="card"
-            onclick="flipCard(this)"
-        >
+        <div class="card" onclick="flipCard(this)">
 
             <div class="card-inner">
 
-
                 <div class="card-front">
 
-                    <div class="dare-icon">
+                    <div class="emoji">
+                        🎤
+                    </div>
+
+                    <div class="question">
+                        ✨ WHAT'S INSIDE? ✨
+                    </div>
+
+                </div>
+
+
+                <div class="card-back">
+
+                    <div class="back-emoji">
                         🎤
                     </div>
 
                     <div class="dare-title">
-                        DARE 3
+                        DARE!
                     </div>
 
                     <div class="dare-text">
                         Sing a song! 🎶😂
                     </div>
 
-                </div>
-
-
-                <div class="card-back">
+                    <div class="gift-number-label">
+                        🎁 Your Gift Number
+                    </div>
 
                     <div class="number"></div>
-
-                    <p>
-                        🎁 Your Gift Number
-                    </p>
 
                 </div>
 
@@ -640,41 +658,44 @@ h1 {
         </div>
 
 
+        <!-- CARD 4 -->
 
-        <!-- DARE 4 -->
-
-        <div
-            class="card"
-            onclick="flipCard(this)"
-        >
+        <div class="card" onclick="flipCard(this)">
 
             <div class="card-inner">
 
-
                 <div class="card-front">
 
-                    <div class="dare-icon">
+                    <div class="emoji">
+                        🛏️
+                    </div>
+
+                    <div class="question">
+                        ✨ WHAT'S INSIDE? ✨
+                    </div>
+
+                </div>
+
+
+                <div class="card-back">
+
+                    <div class="back-emoji">
                         🛏️
                     </div>
 
                     <div class="dare-title">
-                        DARE 4
+                        DARE!
                     </div>
 
                     <div class="dare-text">
                         Search under your bed! 👀😂
                     </div>
 
-                </div>
-
-
-                <div class="card-back">
+                    <div class="gift-number-label">
+                        🎁 Your Gift Number
+                    </div>
 
                     <div class="number"></div>
-
-                    <p>
-                        🎁 Your Gift Number
-                    </p>
 
                 </div>
 
@@ -683,41 +704,44 @@ h1 {
         </div>
 
 
+        <!-- CARD 5 -->
 
-        <!-- DARE 5 -->
-
-        <div
-            class="card"
-            onclick="flipCard(this)"
-        >
+        <div class="card" onclick="flipCard(this)">
 
             <div class="card-inner">
 
-
                 <div class="card-front">
 
-                    <div class="dare-icon">
+                    <div class="emoji">
+                        😂
+                    </div>
+
+                    <div class="question">
+                        ✨ WHAT'S INSIDE? ✨
+                    </div>
+
+                </div>
+
+
+                <div class="card-back">
+
+                    <div class="back-emoji">
                         😂
                     </div>
 
                     <div class="dare-title">
-                        DARE 5
+                        DARE!
                     </div>
 
                     <div class="dare-text">
                         Make us laugh! 🤣💗
                     </div>
 
-                </div>
-
-
-                <div class="card-back">
+                    <div class="gift-number-label">
+                        🎁 Your Gift Number
+                    </div>
 
                     <div class="number"></div>
-
-                    <p>
-                        🎁 Your Gift Number
-                    </p>
 
                 </div>
 
@@ -729,110 +753,117 @@ h1 {
     </div>
 
 
-    <!-- MESSAGE -->
-
     <div class="message">
-
-        Choose your dare... 😈💗
-
+        Pick your mystery card... 😈💗
     </div>
-
-
-    <!-- RESET -->
-
-    <button
-        class="reset"
-        onclick="location.reload()"
-    >
-
-        🔄 Play Again
-
-    </button>
 
 
 </div>
 
 
-
 <script>
 
 
-let alreadyClicked = false;
+/*
+    NUMBERS 1–5
+
+    They are shuffled at the beginning.
+
+    Each card gets a different number.
+*/
+
+let giftNumbers = [1, 2, 3, 4, 5];
+
+giftNumbers.sort(() => Math.random() - 0.5);
 
 
-/* CARD CLICK */
+/*
+    Keep track of which card is opened.
+*/
+
+let numberIndex = 0;
+
+
+/*
+    CARD CLICK
+*/
 
 function flipCard(card) {
 
+    /*
+        Don't allow the same card
+        to be clicked twice.
+    */
 
-    if (alreadyClicked) {
+    if (card.classList.contains("flipped")) {
         return;
     }
 
 
-    alreadyClicked = true;
+    /*
+        Get a unique number.
+    */
+
+    let randomNumber =
+        giftNumbers[numberIndex];
+
+    numberIndex++;
 
 
-    /* SHAKE */
+    /*
+        Shake card.
+    */
 
     card.classList.add("shaking");
 
 
-    /* SPARKLES */
+    /*
+        Create sparkles.
+    */
 
     createSparkles(card);
 
 
     /*
-       Wait until shaking
-       finishes.
+        Wait for shake,
+        then flip.
     */
 
     setTimeout(function() {
 
 
-        /* RANDOM NUMBER 1-5 */
-
-        let randomNumber =
-            Math.floor(
-                Math.random() * 5
-            ) + 1;
-
-
-        /* PUT NUMBER */
+        /*
+            Put gift number
+            on the back.
+        */
 
         card.querySelector(
             ".number"
         ).innerText = randomNumber;
 
 
-        /* FLIP */
+        /*
+            Flip card.
+        */
 
-        card.classList.add(
-            "flipped"
-        );
+        card.classList.add("flipped");
 
 
-        /* CHANGE MESSAGE */
+        /*
+            Change message.
+        */
 
         document.querySelector(
             ".message"
         ).innerHTML =
-
-            "🎉 Moukthika's gift number is "
+            "🎉 Your gift number is "
             + randomNumber
             + "! 🎁💗";
 
 
-        /* SHOW BUTTON */
-
-        document.querySelector(
-            ".reset"
-        ).style.display =
-            "inline-block";
-
-
-        /* CONFETTI */
+        /*
+            Confetti.
+        */
 
         createConfetti();
 
@@ -842,11 +873,11 @@ function flipCard(card) {
 }
 
 
-
-/* SPARKLES */
+/*
+    SPARKLES
+*/
 
 function createSparkles(card) {
-
 
     const rect =
         card.getBoundingClientRect();
@@ -867,11 +898,8 @@ function createSparkles(card) {
         i++
     ) {
 
-
         const sparkle =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
 
         sparkle.className =
@@ -889,22 +917,18 @@ function createSparkles(card) {
 
         sparkle.style.left =
             (
-                rect.left
-                + rect.width / 2
-                + (Math.random() - 0.5)
-                * 180
-            )
-            + "px";
+                rect.left +
+                rect.width / 2 +
+                (Math.random() - 0.5) * 180
+            ) + "px";
 
 
         sparkle.style.top =
             (
-                rect.top
-                + rect.height / 2
-                + (Math.random() - 0.5)
-                * 150
-            )
-            + "px";
+                rect.top +
+                rect.height / 2 +
+                (Math.random() - 0.5) * 150
+            ) + "px";
 
 
         document.body.appendChild(
@@ -922,35 +946,28 @@ function createSparkles(card) {
 }
 
 
-
-/* FLOATING HEARTS */
+/*
+    FLOATING HEARTS
+*/
 
 function createHeart() {
 
-
     const heart =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
 
-    heart.classList.add(
-        "heart"
-    );
+    heart.classList.add("heart");
 
 
-    heart.innerHTML =
-        "💗";
+    heart.innerHTML = "💗";
 
 
     heart.style.left =
-        Math.random() * 100
-        + "vw";
+        Math.random() * 100 + "vw";
 
 
     heart.style.animationDuration =
-        (3 + Math.random() * 4)
-        + "s";
+        (3 + Math.random() * 4) + "s";
 
 
     document.body.appendChild(
@@ -972,11 +989,11 @@ setInterval(
 );
 
 
-
-/* CONFETTI */
+/*
+    CONFETTI
+*/
 
 function createConfetti() {
-
 
     const symbols = [
         "🎉",
@@ -990,15 +1007,12 @@ function createConfetti() {
 
     for (
         let i = 0;
-        i < 100;
+        i < 80;
         i++
     ) {
 
-
         const confetti =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
 
         confetti.className =
@@ -1015,18 +1029,15 @@ function createConfetti() {
 
 
         confetti.style.left =
-            Math.random() * 100
-            + "vw";
+            Math.random() * 100 + "vw";
 
 
         confetti.style.fontSize =
-            (12 + Math.random() * 20)
-            + "px";
+            (12 + Math.random() * 20) + "px";
 
 
         confetti.style.animationDelay =
-            Math.random() * 1.5
-            + "s";
+            Math.random() * 1.5 + "s";
 
 
         document.body.appendChild(
