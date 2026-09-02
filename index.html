@@ -40,7 +40,6 @@ h1 {
     font-size: 46px;
     color: #d6336c;
     margin-bottom: 12px;
-
     text-shadow: 0 0 10px rgba(255, 80, 140, 0.3);
 }
 
@@ -70,15 +69,13 @@ h1 {
     height: 220px;
     perspective: 1200px;
     cursor: pointer;
-
-    transition: transform 0.25s;
 }
 
 
-/* CARD GOES DOWN */
+/* GO DOWN AND COME BACK */
 
 .card.opening {
-    animation: openDown 0.8s ease-in-out;
+    animation: openDown 0.9s ease-in-out;
 }
 
 @keyframes openDown {
@@ -88,15 +85,15 @@ h1 {
     }
 
     25% {
-        transform: translateY(25px) scale(0.95);
+        transform: translateY(25px) scale(0.96);
     }
 
     50% {
-        transform: translateY(45px) scale(0.90);
+        transform: translateY(50px) scale(0.90);
     }
 
     75% {
-        transform: translateY(20px) scale(0.96);
+        transform: translateY(20px) scale(0.97);
     }
 
     100% {
@@ -105,7 +102,7 @@ h1 {
 }
 
 
-/* INNER */
+/* INNER CARD */
 
 .card-inner {
     width: 100%;
@@ -119,6 +116,9 @@ h1 {
         transform 1s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
+
+/* FLIP */
+
 .card.flipped .card-inner {
     transform: rotateY(180deg);
 }
@@ -128,6 +128,7 @@ h1 {
 
 .card-front,
 .card-back {
+
     position: absolute;
 
     width: 100%;
@@ -151,6 +152,7 @@ h1 {
 /* FRONT */
 
 .card-front {
+
     background:
         linear-gradient(
             145deg,
@@ -161,12 +163,14 @@ h1 {
     border: 4px solid #ff5c8a;
 
     position: relative;
+
     overflow: hidden;
 
     transition: 0.3s;
 }
 
 .card:hover .card-front {
+
     transform:
         translateY(-8px)
         rotate(-2deg);
@@ -176,9 +180,10 @@ h1 {
 }
 
 
-/* FRONT EMOJI */
+/* EMOJI */
 
-.card-front .emoji {
+.emoji {
+
     font-size: 75px;
 
     animation:
@@ -197,12 +202,14 @@ h1 {
 }
 
 
-/* QUESTION */
+/* OPEN ME */
 
-.card-front .question {
+.question {
+
     margin-top: 15px;
 
     font-size: 15px;
+
     font-weight: bold;
 
     color: #d6336c;
@@ -214,6 +221,7 @@ h1 {
 /* SHINE */
 
 .card-front::before {
+
     content: "";
 
     position: absolute;
@@ -238,6 +246,7 @@ h1 {
 /* BACK */
 
 .card-back {
+
     background:
         linear-gradient(
             135deg,
@@ -259,12 +268,19 @@ h1 {
 /* BACK EMOJI */
 
 .back-emoji {
+
     font-size: 42px;
-    margin-bottom: 8px;
+
+    margin-bottom: 6px;
 }
 
+
+/* DARE */
+
 .dare-title {
+
     font-size: 15px;
+
     font-weight: bold;
 
     margin-bottom: 8px;
@@ -273,6 +289,7 @@ h1 {
 }
 
 .dare-text {
+
     font-size: 16px;
 
     line-height: 1.4;
@@ -283,13 +300,17 @@ h1 {
 }
 
 
-/* NUMBER */
+/* GIFT */
 
-.gift-number-label {
+.gift-label {
+
     font-size: 13px;
+
+    margin-bottom: 2px;
 }
 
 .number {
+
     font-size: 55px;
 
     font-weight: bold;
@@ -321,6 +342,7 @@ h1 {
 /* SPARKLES */
 
 .sparkle {
+
     position: fixed;
 
     pointer-events: none;
@@ -363,6 +385,7 @@ h1 {
 /* MESSAGE */
 
 .message {
+
     margin-top: 35px;
 
     font-size: 24px;
@@ -378,6 +401,7 @@ h1 {
 /* FLOATING HEARTS */
 
 .heart {
+
     position: absolute;
 
     font-size: 25px;
@@ -417,6 +441,7 @@ h1 {
 /* CONFETTI */
 
 .confetti {
+
     position: fixed;
 
     top: -20px;
@@ -464,11 +489,11 @@ h1 {
         height: 170px;
     }
 
-    .card-front .emoji {
+    .emoji {
         font-size: 50px;
     }
 
-    .card-front .question {
+    .question {
         font-size: 11px;
     }
 
@@ -501,10 +526,15 @@ h1 {
 
 <div class="container">
 
+
+    <!-- TITLE -->
+
     <h1>
+
         🎂 Happy Birthday,
         <span class="name">Moukthika</span>!
         🎀
+
     </h1>
 
 
@@ -514,7 +544,7 @@ h1 {
 
         <br>
 
-        Choose <b>ONE</b> mystery card! ✨
+        Choose a mystery card! ✨
 
     </p>
 
@@ -528,6 +558,9 @@ h1 {
 
             <div class="card-inner">
 
+
+                <!-- FRONT -->
+
                 <div class="card-front">
 
                     <div class="emoji">
@@ -541,6 +574,8 @@ h1 {
                 </div>
 
 
+                <!-- BACK -->
+
                 <div class="card-back">
 
                     <div class="back-emoji">
@@ -548,24 +583,27 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE!
+                        DARE! 😂
                     </div>
 
                     <div class="dare-text">
                         Tell us we are great! 😌💗
                     </div>
 
-                    <div class="gift-number-label">
+                    <div class="gift-label">
                         🎁 Your Gift Number
                     </div>
 
-                    <div class="number"></div>
+                    <div class="number">
+                        3
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
+
 
 
         <!-- CARD 2 -->
@@ -574,6 +612,7 @@ h1 {
 
             <div class="card-inner">
 
+
                 <div class="card-front">
 
                     <div class="emoji">
@@ -594,24 +633,27 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE!
+                        DARE! 😂
                     </div>
 
                     <div class="dare-text">
-                        Drink a full bottle of water! 😂💧
+                        Drink a full bottle of water! 💧😂
                     </div>
 
-                    <div class="gift-number-label">
+                    <div class="gift-label">
                         🎁 Your Gift Number
                     </div>
 
-                    <div class="number"></div>
+                    <div class="number">
+                        1
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
+
 
 
         <!-- CARD 3 -->
@@ -620,6 +662,7 @@ h1 {
 
             <div class="card-inner">
 
+
                 <div class="card-front">
 
                     <div class="emoji">
@@ -640,24 +683,27 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE!
+                        DARE! 😂
                     </div>
 
                     <div class="dare-text">
                         Give a motivational speech to a wall! 😂🧱
                     </div>
 
-                    <div class="gift-number-label">
+                    <div class="gift-label">
                         🎁 Your Gift Number
                     </div>
 
-                    <div class="number"></div>
+                    <div class="number">
+                        5
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
+
 
 
         <!-- CARD 4 -->
@@ -666,6 +712,7 @@ h1 {
 
             <div class="card-inner">
 
+
                 <div class="card-front">
 
                     <div class="emoji">
@@ -686,24 +733,27 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE!
+                        DARE! 😂
                     </div>
 
                     <div class="dare-text">
                         Search under your bed! 👀😂
                     </div>
 
-                    <div class="gift-number-label">
+                    <div class="gift-label">
                         🎁 Your Gift Number
                     </div>
 
-                    <div class="number"></div>
+                    <div class="number">
+                        2
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
+
 
 
         <!-- CARD 5 -->
@@ -712,6 +762,7 @@ h1 {
 
             <div class="card-inner">
 
+
                 <div class="card-front">
 
                     <div class="emoji">
@@ -732,18 +783,20 @@ h1 {
                     </div>
 
                     <div class="dare-title">
-                        DARE!
+                        DARE! 😂
                     </div>
 
                     <div class="dare-text">
                         Make us laugh! 🤣💗
                     </div>
 
-                    <div class="gift-number-label">
+                    <div class="gift-label">
                         🎁 Your Gift Number
                     </div>
 
-                    <div class="number"></div>
+                    <div class="number">
+                        4
+                    </div>
 
                 </div>
 
@@ -751,12 +804,16 @@ h1 {
 
         </div>
 
+
     </div>
 
 
     <div class="message">
+
         Pick your mystery card... 😈💗
+
     </div>
+
 
 </div>
 
@@ -765,30 +822,14 @@ h1 {
 
 
 /*
-    NUMBERS 1-5
-
-    Every number appears only once.
+    CARD OPENING
 */
-
-let giftNumbers = [1, 2, 3, 4, 5];
-
-
-/* Shuffle numbers */
-
-giftNumbers.sort(
-    () => Math.random() - 0.5
-);
-
-
-let numberIndex = 0;
-
-
-/* CARD CLICK */
 
 function flipCard(card) {
 
+
     /*
-        Don't open the same card again.
+        Don't open the same card twice.
     */
 
     if (
@@ -800,87 +841,65 @@ function flipCard(card) {
 
 
     /*
-        Start opening animation.
+        Add the down-and-up animation.
     */
 
     card.classList.add("opening");
 
 
     /*
-        Sparkles appear.
+        Sparkles.
     */
 
     createSparkles(card);
 
 
     /*
-        Wait for the card to go down
-        and return to normal.
+        Wait until the card finishes
+        going down and coming back.
     */
 
     setTimeout(function() {
 
 
         /*
-            Give this card a unique
-            random number.
-        */
-
-        let randomNumber =
-            giftNumbers[numberIndex];
-
-
-        numberIndex++;
-
-
-        /*
-            Put number on back.
-        */
-
-        card.querySelector(
-            ".number"
-        ).innerText = randomNumber;
-
-
-        /*
-            Flip card.
+            Flip the card.
         */
 
         card.classList.add("flipped");
 
 
         /*
-            Remove opening class.
+            Remove opening animation.
         */
 
         card.classList.remove("opening");
 
 
         /*
-            Change message.
-        */
-
-        document.querySelector(
-            ".message"
-        ).innerHTML =
-            "🎉 Your gift number is "
-            + randomNumber
-            + "! 🎁💗";
-
-
-        /*
-            Confetti.
+            Celebration.
         */
 
         createConfetti();
 
 
-    }, 800);
+        /*
+            Message.
+        */
+
+        document.querySelector(".message").innerHTML =
+            "🎉 You found your gift! 🎁💗";
+
+
+    }, 900);
 
 }
 
 
-/* SPARKLES */
+
+/*
+    SPARKLES
+*/
 
 function createSparkles(card) {
 
@@ -951,7 +970,10 @@ function createSparkles(card) {
 }
 
 
-/* FLOATING HEARTS */
+
+/*
+    FLOATING HEARTS
+*/
 
 function createHeart() {
 
@@ -992,7 +1014,10 @@ setInterval(
 );
 
 
-/* CONFETTI */
+
+/*
+    CONFETTI
+*/
 
 function createConfetti() {
 
