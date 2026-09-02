@@ -70,7 +70,42 @@ h1 {
     height: 220px;
     perspective: 1200px;
     cursor: pointer;
+
+    transition: transform 0.25s;
 }
+
+
+/* CARD GOES DOWN */
+
+.card.opening {
+    animation: openDown 0.8s ease-in-out;
+}
+
+@keyframes openDown {
+
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    25% {
+        transform: translateY(25px) scale(0.95);
+    }
+
+    50% {
+        transform: translateY(45px) scale(0.90);
+    }
+
+    75% {
+        transform: translateY(20px) scale(0.96);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* INNER */
 
 .card-inner {
     width: 100%;
@@ -89,7 +124,7 @@ h1 {
 }
 
 
-/* FRONT AND BACK */
+/* FRONT + BACK */
 
 .card-front,
 .card-back {
@@ -141,12 +176,13 @@ h1 {
 }
 
 
-/* BIG EMOJI */
+/* FRONT EMOJI */
 
 .card-front .emoji {
     font-size: 75px;
 
-    animation: emojiFloat 2s ease-in-out infinite;
+    animation:
+        emojiFloat 2s ease-in-out infinite;
 }
 
 @keyframes emojiFloat {
@@ -161,7 +197,7 @@ h1 {
 }
 
 
-/* FRONT QUESTION */
+/* QUESTION */
 
 .card-front .question {
     margin-top: 15px;
@@ -220,7 +256,7 @@ h1 {
 }
 
 
-/* DARE ON BACK */
+/* BACK EMOJI */
 
 .back-emoji {
     font-size: 42px;
@@ -247,7 +283,7 @@ h1 {
 }
 
 
-/* GIFT NUMBER */
+/* NUMBER */
 
 .gift-number-label {
     font-size: 13px;
@@ -282,40 +318,6 @@ h1 {
 }
 
 
-/* SHAKE */
-
-.card.shaking {
-    animation: shake 0.6s;
-}
-
-@keyframes shake {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    20% {
-        transform: translateX(-9px) rotate(-3deg);
-    }
-
-    40% {
-        transform: translateX(9px) rotate(3deg);
-    }
-
-    60% {
-        transform: translateX(-7px) rotate(-2deg);
-    }
-
-    80% {
-        transform: translateX(7px) rotate(2deg);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-
 /* SPARKLES */
 
 .sparkle {
@@ -332,12 +334,18 @@ h1 {
 @keyframes sparkleAnimation {
 
     0% {
-        transform: scale(0) rotate(0deg);
+        transform:
+            scale(0)
+            rotate(0deg);
+
         opacity: 1;
     }
 
     50% {
-        transform: scale(1.5) rotate(180deg);
+        transform:
+            scale(1.5)
+            rotate(180deg);
+
         opacity: 1;
     }
 
@@ -493,8 +501,6 @@ h1 {
 
 <div class="container">
 
-    <!-- TITLE -->
-
     <h1>
         🎂 Happy Birthday,
         <span class="name">Moukthika</span>!
@@ -522,8 +528,6 @@ h1 {
 
             <div class="card-inner">
 
-                <!-- FRONT -->
-
                 <div class="card-front">
 
                     <div class="emoji">
@@ -531,13 +535,11 @@ h1 {
                     </div>
 
                     <div class="question">
-                        ✨ WHAT'S INSIDE? ✨
+                        ✨ OPEN ME ✨
                     </div>
 
                 </div>
 
-
-                <!-- BACK -->
 
                 <div class="card-back">
 
@@ -579,7 +581,7 @@ h1 {
                     </div>
 
                     <div class="question">
-                        ✨ WHAT'S INSIDE? ✨
+                        ✨ OPEN ME ✨
                     </div>
 
                 </div>
@@ -621,11 +623,11 @@ h1 {
                 <div class="card-front">
 
                     <div class="emoji">
-                        🎤
+                        🧱
                     </div>
 
                     <div class="question">
-                        ✨ WHAT'S INSIDE? ✨
+                        ✨ OPEN ME ✨
                     </div>
 
                 </div>
@@ -634,7 +636,7 @@ h1 {
                 <div class="card-back">
 
                     <div class="back-emoji">
-                        🎤
+                        🧱
                     </div>
 
                     <div class="dare-title">
@@ -642,7 +644,7 @@ h1 {
                     </div>
 
                     <div class="dare-text">
-                        Sing a song! 🎶😂
+                        Give a motivational speech to a wall! 😂🧱
                     </div>
 
                     <div class="gift-number-label">
@@ -671,7 +673,7 @@ h1 {
                     </div>
 
                     <div class="question">
-                        ✨ WHAT'S INSIDE? ✨
+                        ✨ OPEN ME ✨
                     </div>
 
                 </div>
@@ -717,7 +719,7 @@ h1 {
                     </div>
 
                     <div class="question">
-                        ✨ WHAT'S INSIDE? ✨
+                        ✨ OPEN ME ✨
                     </div>
 
                 </div>
@@ -749,14 +751,12 @@ h1 {
 
         </div>
 
-
     </div>
 
 
     <div class="message">
         Pick your mystery card... 😈💗
     </div>
-
 
 </div>
 
@@ -765,76 +765,76 @@ h1 {
 
 
 /*
-    NUMBERS 1–5
+    NUMBERS 1-5
 
-    They are shuffled at the beginning.
-
-    Each card gets a different number.
+    Every number appears only once.
 */
 
 let giftNumbers = [1, 2, 3, 4, 5];
 
-giftNumbers.sort(() => Math.random() - 0.5);
 
+/* Shuffle numbers */
 
-/*
-    Keep track of which card is opened.
-*/
+giftNumbers.sort(
+    () => Math.random() - 0.5
+);
+
 
 let numberIndex = 0;
 
 
-/*
-    CARD CLICK
-*/
+/* CARD CLICK */
 
 function flipCard(card) {
 
     /*
-        Don't allow the same card
-        to be clicked twice.
+        Don't open the same card again.
     */
 
-    if (card.classList.contains("flipped")) {
+    if (
+        card.classList.contains("flipped") ||
+        card.classList.contains("opening")
+    ) {
         return;
     }
 
 
     /*
-        Get a unique number.
+        Start opening animation.
     */
 
-    let randomNumber =
-        giftNumbers[numberIndex];
-
-    numberIndex++;
+    card.classList.add("opening");
 
 
     /*
-        Shake card.
-    */
-
-    card.classList.add("shaking");
-
-
-    /*
-        Create sparkles.
+        Sparkles appear.
     */
 
     createSparkles(card);
 
 
     /*
-        Wait for shake,
-        then flip.
+        Wait for the card to go down
+        and return to normal.
     */
 
     setTimeout(function() {
 
 
         /*
-            Put gift number
-            on the back.
+            Give this card a unique
+            random number.
+        */
+
+        let randomNumber =
+            giftNumbers[numberIndex];
+
+
+        numberIndex++;
+
+
+        /*
+            Put number on back.
         */
 
         card.querySelector(
@@ -847,6 +847,13 @@ function flipCard(card) {
         */
 
         card.classList.add("flipped");
+
+
+        /*
+            Remove opening class.
+        */
+
+        card.classList.remove("opening");
 
 
         /*
@@ -868,14 +875,12 @@ function flipCard(card) {
         createConfetti();
 
 
-    }, 600);
+    }, 800);
 
 }
 
 
-/*
-    SPARKLES
-*/
+/* SPARKLES */
 
 function createSparkles(card) {
 
@@ -946,9 +951,7 @@ function createSparkles(card) {
 }
 
 
-/*
-    FLOATING HEARTS
-*/
+/* FLOATING HEARTS */
 
 function createHeart() {
 
@@ -989,9 +992,7 @@ setInterval(
 );
 
 
-/*
-    CONFETTI
-*/
+/* CONFETTI */
 
 function createConfetti() {
 
